@@ -7,17 +7,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import net.penguincoders.doit.AddNewTask;
 import net.penguincoders.doit.MainActivity;
-import net.penguincoders.doit.models.ToDoModel;
 import net.penguincoders.doit.R;
+import net.penguincoders.doit.models.ToDoModel;
 import net.penguincoders.doit.utils.DatabaseHandler;
 
 import java.util.List;
+import java.util.Objects;
 
 public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> {
 
@@ -44,6 +46,12 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> {
 
         final ToDoModel item = todoList.get(position);
         holder.task.setText(item.getTask());
+        if (Objects.equals(item.getExtra(), "")) {
+            holder.extraTask.setVisibility(View.GONE);
+        } else {
+            holder.extraTask.setVisibility(View.VISIBLE);
+            holder.extraTask.setText(item.getExtra());
+        }
         holder.task.setChecked(toBoolean(item.getStatus()));
         holder.task.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -94,10 +102,12 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> {
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         CheckBox task;
+        TextView extraTask;
 
         ViewHolder(View view) {
             super(view);
             task = view.findViewById(R.id.todoCheckBox);
+            extraTask = view.findViewById(R.id.todoCheckBoxExtra);
         }
     }
 }

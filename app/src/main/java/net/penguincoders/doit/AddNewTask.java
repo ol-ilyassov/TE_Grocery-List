@@ -92,8 +92,7 @@ public class AddNewTask extends BottomSheetDialogFragment {
             }
 
             @Override
-            public void afterTextChanged(Editable s) {
-            }
+            public void afterTextChanged(Editable s) { }
         });
 
         final boolean finalIsUpdate = isUpdate;
@@ -103,11 +102,8 @@ public class AddNewTask extends BottomSheetDialogFragment {
                 String text = newTaskText.getText().toString();
                 if(finalIsUpdate){
                     db.updateTask(bundle.getInt("id"), text);
-                }
-                else {
-                    ToDoModel task = new ToDoModel();
-                    task.setTask(text);
-                    task.setStatus(0);
+                } else {
+                    ToDoModel task = new ToDoModel(0, text, "");
                     db.insertTask(task);
                 }
                 dismiss();

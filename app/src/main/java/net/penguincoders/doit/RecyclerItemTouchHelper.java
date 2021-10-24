@@ -24,7 +24,6 @@ public class RecyclerItemTouchHelper extends ItemTouchHelper.SimpleCallback {
         this.adapter = adapter;
     }
 
-
     @Override
     public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
         return false;
@@ -37,7 +36,7 @@ public class RecyclerItemTouchHelper extends ItemTouchHelper.SimpleCallback {
             AlertDialog.Builder builder = new AlertDialog.Builder(adapter.getContext());
             builder.setTitle("Удаление продукта");
             builder.setMessage("Вы действительно хотите убрать продукт?");
-            builder.setPositiveButton("Confirm",
+            builder.setPositiveButton("Удалить",
                     new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {

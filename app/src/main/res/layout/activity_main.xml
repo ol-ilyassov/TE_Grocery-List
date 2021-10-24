@@ -16,14 +16,34 @@
         android:textSize="32sp"
         android:textStyle="bold" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/tasksRecyclerView"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tasksText">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tasksText"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:nestedScrollingEnabled="true" />
+            android:orientation="vertical" >
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/tasksRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="true"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+            <TextView
+                android:id="@+id/finalSum"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/tasksRecyclerView"
+                android:gravity="center_horizontal"
+                android:text="Итого: -"
+                android:textColor="@android:color/black"
+                android:layout_marginBottom="80dp"/>
+        </LinearLayout>
+    </ScrollView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
@@ -50,12 +70,4 @@
         android:layout_marginBottom="32dp"
         android:backgroundTint="#673AB7"
         android:src="@drawable/ic_baseline_qr_code_scanner_24" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/test"
-        android:text="test"
-        android:layout_margin="20dp"
-        android:layout_below="@id/tasksRecyclerView"/>
 </RelativeLayout>
