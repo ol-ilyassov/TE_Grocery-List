@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Grocery List</string>
+    <string name="app_name">ListGo</string>
     <string name="save">Сохранить</string>
     <string name="new_task">Добавить продукт</string>
     <string name="tasks">Список Покупок</string>
