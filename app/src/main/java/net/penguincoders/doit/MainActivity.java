@@ -139,7 +139,7 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
         if (requestCode == LAUNCH_SECOND_ACTIVITY) {
             if (resultCode == Activity.RESULT_OK) {
                 String qr_result = data.getStringExtra("qr_result");
-                qr_result = "http://consumer.oofd.kz/?i=1734974179&f=010100465991&s=13507.0&t=20210922T224125";
+                //qr_result = "http://consumer.oofd.kz/?i=1734974179&f=010100465991&s=13507.0&t=20210922T224125";
 
                 NetworkService.getInstance()
                         .getBasketApi()
